@@ -1,2 +1,4 @@
-"New York", 1, 1
-"Los Angeles", 2, 2
+New York, 1, 1
+Los Angeles, 2, 2
+Chicago, 3, 4
+Philadelphia, 5, 2
