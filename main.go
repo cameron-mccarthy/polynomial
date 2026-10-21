@@ -53,6 +53,8 @@ func build(cities []City) {
 		matrix = append(matrix, equation)
 	}
 	fmt.Println(matrix)
+	result := matMult(matrix, matrix)
+	fmt.Println(result)
 }
 
 func pow(base, exp int) int {
@@ -65,15 +67,20 @@ func pow(base, exp int) int {
 
 func matMult(A, B [][]int) [][]int {
 	var result [][]int
-	if len(A) != len(B[0]) {
+	if len(A[0]) != len(B) {
 		fmt.Println("ERROR")
 		return nil
 	}
 
-	for j := 0; j < len(B[0]); j++ {
-		for i := 0; i < len(A); i++ {
-
+	for row := 0; row < len(A); row++ {
+		line := []int{}
+		for col := 0; col < len(B[0]); col++ {
+			line = append(line, 0)
+			for i := 0; i < len(B[0]); i++ {
+				line[col] += A[row][i] * B[i][col]
+			}
 		}
+		result = append(result, line)
 	}
 
 	return result
